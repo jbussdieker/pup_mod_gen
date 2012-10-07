@@ -4,8 +4,8 @@ require File.expand_path('../lib/pup_mod_gen/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Joshua Bussdieker"]
   gem.email         = ["josh.bussdieker@moovweb.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Generate blank puppet modules.}
+  gem.summary       = %q{Generate blank puppet modules. Creates a consistent folder structure.}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
