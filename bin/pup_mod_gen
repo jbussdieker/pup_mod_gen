@@ -1,2 +1,10 @@
 #!/usr/bin/ruby
-puts "YAY"
+require "rubygems"
+require File.expand_path('../../lib/pup_mod_gen', __FILE__)
+
+#lp = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib"))
+#unless $LOAD_PATH.include?(lp)
+#    $LOAD_PATH.unshift(lp)
+#end
+
+PupModGen.generate(ARGV[0])
