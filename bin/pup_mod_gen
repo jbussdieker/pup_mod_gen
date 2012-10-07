@@ -15,6 +15,10 @@ OptionParser.new do |opts|
     options[:deb] = v
   end
 
+  opts.on("-j", "--jar FILE", "Static jar file. This will be copied to the modules files.") do |v|
+    options[:jar] = v
+  end
+
   opts.on("-s", "Include service template") do |v|
     options[:service] = v
   end

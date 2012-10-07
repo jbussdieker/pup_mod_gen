@@ -7,6 +7,7 @@ class <%= name %>::config inherits <%= name %> {
     mode    => <%= File.open(cfgfile).stat.mode.to_s(8)[-4..-1] %>,
     source  => 'puppet:///modules/<%= name %>/<%= File.basename(cfgfile) %>',
     require => Class['<%= name %>::package'],
+    notify  => Class['<%= name %>::services'],
   }
 <% FileUtils.cp cfgfile, File.join(name, "files", File.basename(cfgfile)) %><% end %>
 }

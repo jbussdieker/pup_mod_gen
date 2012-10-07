@@ -1,9 +1,9 @@
 class <%= name %>::package inherits <%= name %> {
-<% if options[:package] && !options[:deb] %>
+<% if options[:package] && !(options[:deb] || options[:jar]) %>
   package { '<%= name %>':
     ensure => installed,
   }
-<% elsif options[:package] && options[:deb] %>
+<% end %><% if options[:package] && options[:deb] %>
   file { '/var/tmp/<%= options[:deb] %>':
     ensure => present,
     owner  => root,
@@ -19,5 +19,23 @@ class <%= name %>::package inherits <%= name %> {
     require  => File['/var/tmp/<%= options[:deb] %>'],
   }
 <% FileUtils.cp options[:deb], File.join(name, "files", File.basename(options[:deb])) %>
+<% end %><% if options[:package] && options[:jar] %>
+  file { '/opt/<%= options[:jar] %>':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/<%= name %>/<%= options[:jar] %>',
+  }
+
+  file { '/etc/init.d/<%= name %>':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0755',
+    source   => 'puppet:///modules/<%= name %>/<%= name %>',
+    require  => File['/opt/<%= options[:jar] %>'],
+  }
+<% FileUtils.cp options[:jar], File.join(name, "files", File.basename(options[:jar])) %>
 <% end %>
 }
