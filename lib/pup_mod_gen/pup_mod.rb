@@ -6,7 +6,6 @@ module PupModGen
     def initialize(name, options={})
       self.name = name
       self.template_path = File.expand_path('../../../templates', __FILE__)
-      #self.template_path = File.absolute_path(File.join(File.dirname(__FILE__), "..", "..", "templates"))
       self.template_path ||= options[:template_path]
     end
 

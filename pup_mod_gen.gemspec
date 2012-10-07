@@ -2,8 +2,8 @@
 require File.expand_path('../lib/pup_mod_gen/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Joshua Bussdieker"]
-  gem.email         = ["josh.bussdieker@moovweb.com"]
+  gem.authors       = ["Joshua B. Bussdieker"]
+  gem.email         = ["jbussdieker@gmail.com"]
   gem.description   = %q{Generate blank puppet modules.}
   gem.summary       = %q{Generate blank puppet modules. Creates a consistent folder structure.}
   gem.homepage      = ""
