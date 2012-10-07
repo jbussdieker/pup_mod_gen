@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "pup_mod_gen"
   gem.require_paths = ["lib"]
   gem.version       = PupModGen::VERSION
+
+  gem.add_development_dependency 'rspec', '~> 2.5'
+  gem.add_development_dependency 'rake'
 end
