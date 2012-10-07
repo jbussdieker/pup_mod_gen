@@ -1,7 +1,23 @@
 class <%= name %>::package inherits <%= name %> {
-<% if options[:package] %>
+<% if options[:package] && !options[:deb] %>
   package { '<%= name %>':
     ensure => installed,
   }
+<% elsif options[:package] && options[:deb] %>
+  file { '/var/tmp/<%= options[:deb] %>':
+    ensure => present,
+    owner  => root,
+    group  => root,
+    mode   => '0644',
+    source => 'puppet:///modules/<%= name %>/<%= options[:deb] %>',
+  }
+
+  package { '<%= name %>':
+    ensure   => installed,
+    provider => 'dpkg',
+    source   => '/var/tmp/#{options[:deb]}',
+    require  => File['/var/tmp/<%= options[:deb] %>'],
+  }
+<% FileUtils.cp options[:deb], File.join(name, "files", File.basename(options[:deb])) %>
 <% end %>
 }

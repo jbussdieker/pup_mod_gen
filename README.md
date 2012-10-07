@@ -23,8 +23,9 @@ Command-line options:
 `````
 Usage: pup_mod_gen [options]
     -p                               Include package template
+    -d, --deb FILE                   Static debian package file. This will be copied to the modules files.
     -s                               Include service template
-    -c, --config FILE                Config files to add
+    -c, --config FILE                Config files to track. These will be add to files.
     -h, --help                       Show this message
 `````
 

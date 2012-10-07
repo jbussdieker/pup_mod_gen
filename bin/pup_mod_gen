@@ -11,11 +11,15 @@ OptionParser.new do |opts|
     options[:package] = v
   end
 
+  opts.on("-d", "--deb FILE", "Static debian package file. This will be copied to the modules files.") do |v|
+    options[:deb] = v
+  end
+
   opts.on("-s", "Include service template") do |v|
     options[:service] = v
   end
 
-  opts.on("-c", "--config FILE", "Config files to add") do |v|
+  opts.on("-c", "--config FILE", "Config files to track. These will be add to files.") do |v|
     options[:config] << v
   end
 
