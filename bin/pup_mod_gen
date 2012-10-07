@@ -1,10 +1,30 @@
 #!/usr/bin/ruby
-require "rubygems"
+require 'rubygems'
+require 'optparse'
 require File.expand_path('../../lib/pup_mod_gen', __FILE__)
 
-#lp = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib"))
-#unless $LOAD_PATH.include?(lp)
-#    $LOAD_PATH.unshift(lp)
-#end
+options = {:config => []}
+OptionParser.new do |opts|
+  opts.banner = "Usage: pup_mod_gen [options]"
 
-PupModGen.generate(ARGV[0])
+  opts.on("-p", "Include package template") do |v|
+    options[:package] = v
+  end
+
+  opts.on("-s", "Include service template") do |v|
+    options[:service] = v
+  end
+
+  opts.on("-c", "--config FILE", "Config files to add") do |v|
+    options[:config] << v
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end.parse!
+
+p options
+
+PupModGen.generate(ARGV[0], options)

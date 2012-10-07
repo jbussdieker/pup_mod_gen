@@ -1,12 +1,15 @@
 module PupModGen
-  class PupMod
+  class Pmodule
     attr_accessor :name
+    attr_accessor :mode
+    attr_accessor :options
     attr_accessor :template_path
 
     def initialize(name, options={})
       self.name = name
       self.template_path = File.expand_path('../../../templates', __FILE__)
       self.template_path ||= options[:template_path]
+      self.options = options
     end
 
     def generate(filename)

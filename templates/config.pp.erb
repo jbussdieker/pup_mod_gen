@@ -1,4 +1,11 @@
 class <%= name %>::config inherits <%= name %> {
-
-
+<% options[:config].each do |cfgfile| %>
+  file { '<%= cfgfile %>':
+    ensure => present,
+    owner  => '<%= Etc.getpwuid(File.open(cfgfile).stat.uid).name %>',
+    group  => '<%= Etc.getgrgid(File.open(cfgfile).stat.gid).name %>',
+    mode   => <%= File.open(cfgfile).stat.mode.to_s(8)[-4..-1] %>,
+    source => 'puppet:///modules/<%= name %>/<%= File.basename(cfgfile) %>',
+  }
+<% FileUtils.cp cfgfile, File.join(name, "files", File.basename(cfgfile)) %><% end %>
 }

@@ -1,4 +1,7 @@
 class <%= name %>::services inherits <%= name %> {
-
-
+<% if options[:service] %>
+  service { '<%= name %>':
+    ensure => running,
+  }
+<% end %>
 }
