@@ -5,9 +5,10 @@ require "fileutils"
 
 module PupModGen
   def self.generate(name)
-    FileUtils.mkdir name
+    dir_name = File.join(name, "manifests")
+    FileUtils.mkdir_p dir_name
     ["init", "setup", "package", "services", "config"].each do |type|
-      File.open(File.join(name, "#{type}.pp"), "w") {|f|
+      File.open(File.join(dir_name, "#{type}.pp"), "w") {|f|
         f.write PupMod.new(name).generate(type)
       }
     end

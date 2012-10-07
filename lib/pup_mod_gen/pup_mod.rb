@@ -11,7 +11,6 @@ module PupModGen
 
     def generate(filename)
       full_filename = File.join(self.template_path, "#{filename}.pp.erb")
-      puts "Full Filename: #{full_filename}"
       template = ERB.new(File.open(full_filename).read)
       template.result(binding)
     end
