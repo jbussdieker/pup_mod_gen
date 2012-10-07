@@ -18,6 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
+Command-line options:
+
+`````
+Usage: pup_mod_gen [options]
+    -p                               Include package template
+    -s                               Include service template
+    -c, --config FILE                Config files to add
+    -h, --help                       Show this message
+`````
+
 This will make a basic puppet recipe for nginx:
 
     pup_mod_gen nginx -p -s -c /etc/nginx/nginx.conf -c /etc/nginx/sites-available/default
