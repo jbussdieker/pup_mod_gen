@@ -1,7 +1,7 @@
 class <%= name %>::package inherits <%= name %> {
 <% if options[:package] %>
   package { '<%= name %>':
-    ensure => present,
+    ensure => installed,
   }
 <% end %>
 }
