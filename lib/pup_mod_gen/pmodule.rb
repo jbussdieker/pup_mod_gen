@@ -10,6 +10,7 @@ module PupModGen
       self.template_path = File.expand_path('../../../templates', __FILE__)
       self.template_path ||= options[:template_path]
       self.options = options
+      self.options[:config] ||= {}
     end
 
     def generate(filename)
