@@ -1,6 +1,6 @@
 # PupModGen
 
-TODO: Write a gem description
+PupModGen makes puppetizing packages easier by using templates and information from existing configurations.
 
 ## Installation
 
@@ -18,7 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This will make a basic puppet recipe for nginx:
+
+    pup_mod_gen nginx -p -s -c /etc/nginx/nginx.conf -c /etc/nginx/sites-available/default
 
 ## Contributing
 

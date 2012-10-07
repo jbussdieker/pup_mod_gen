@@ -4,9 +4,6 @@ require "erb"
 require "fileutils"
 
 module PupModGen
-  NORMAL = 0
-  FULL = 1
-
   def self.generate(name, options={})
     man_dir = File.join(name, "manifests")
     files_dir = File.join(name, "files")
