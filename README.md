@@ -1,6 +1,7 @@
 # PupModGen
 
 [![Build Status](https://secure.travis-ci.org/jbussdieker/pup_mod_gen.png)](http://travis-ci.org/jbussdieker/pup_mod_gen)
+
 PupModGen makes puppetizing packages easier by using templates and information from existing configurations.
 
 ## Installation
