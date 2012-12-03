@@ -1,6 +1,4 @@
 #!/usr/bin/ruby
-require 'rubygems'
-require 'optparse'
-require File.expand_path('../../lib/pup_mod_gen', __FILE__)
+require 'pup_mod_gen'
 
 puts `puppet apply --modulepath=./ -e "include #{ARGV[0]}::setup" #{ARGV[1..-1].join(" ")}`

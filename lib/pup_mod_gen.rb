@@ -1,10 +1,11 @@
-require "rubygems"
-require File.expand_path('../pup_mod_gen/pmodule', __FILE__)
+require "pup_mod_gen/options"
+require "pup_mod_gen/pmodule"
 require "erb"
 require "fileutils"
 
 module PupModGen
-  def self.generate(name, options={})
+  def self.generate(options={})
+    name = options[:name]
     man_dir = File.join(name, "manifests")
     files_dir = File.join(name, "files")
     FileUtils.mkdir_p man_dir

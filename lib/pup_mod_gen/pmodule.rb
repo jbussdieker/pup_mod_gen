@@ -6,15 +6,15 @@ module PupModGen
     attr_accessor :template_path
 
     def initialize(name, options={})
-      self.name = name
-      self.template_path = File.expand_path('../../../templates', __FILE__)
-      self.template_path ||= options[:template_path]
-      self.options = options
-      self.options[:config] ||= {}
+      @name = name
+      @template_path = File.expand_path('../../../data', __FILE__)
+      @template_path ||= options[:template_path]
+      @options = options
+      @options[:config] ||= {}
     end
 
     def generate(filename)
-      full_filename = File.join(self.template_path, "#{filename}.pp.erb")
+      full_filename = File.join(@template_path, "#{filename}.pp.erb")
       template = ERB.new(File.open(full_filename).read)
       template.result(binding)
     end
