@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 require 'pup_mod_gen'
 
 options = PupModGen::Options.parse(ARGV)

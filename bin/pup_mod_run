@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 require 'pup_mod_gen'
 
 puts `puppet apply --modulepath=./ -e "include #{ARGV[0]}::setup" #{ARGV[1..-1].join(" ")}`
